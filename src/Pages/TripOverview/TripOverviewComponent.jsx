@@ -1,3 +1,5 @@
+import { faBolt, faCalendarDays, faCarSide, faCircleCheck, faCircleInfo, faClock, faLocationDot, faMoon, faTriangleExclamation, faTruck, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 
 
@@ -327,11 +329,11 @@ function TripOverviewComponent() {
     // returns icons for events
     const stopEventIcon = (status)=>{
         if(status==0){
-            return <i className="fa-solid fa-circle-check"></i>
+            return <FontAwesomeIcon icon={faCircleCheck} />
         }else if(status==1 || status == 2){
-            return <i className="fa-solid fa-circle-info"></i>
+            return <FontAwesomeIcon icon={faCircleInfo} />
         }else{
-            return <i className="fa-solid fa-triangle-exclamation"></i>
+            return <FontAwesomeIcon icon={faTriangleExclamation} />
         }
     }
 
@@ -359,7 +361,7 @@ function TripOverviewComponent() {
         <div className="col-4 trips border-end p-0">
             <div className="d-flex justify-content-between align-items-center border-bottom">
                 <h5 className='m-0 p-2 ms-2'>Trips</h5>
-                <span><i className="fa-solid fa-xmark me-2"></i></span>
+                <span><FontAwesomeIcon icon={faXmark} className='me-2'/></span>
             </div>
             <div className='p-2 border-bottom d-flex align-items-center gap-2 mb-2'>
                 <select defaultValue={""} className='form-control' onChange={(e)=>handleBusSearch(e)}>
@@ -371,7 +373,7 @@ function TripOverviewComponent() {
                     }
                 </select>
                 <label htmlFor="date" onClick={() => document.getElementById('date').showPicker()}>
-                    <i className="fa-regular fa-calendar-days pointer"></i>
+                    <FontAwesomeIcon icon={faCalendarDays} className='pointer'/>
                 </label>
                 <input type="date" style={{opacity:"0",width:"0",height:"0"}} id='date' value={datePick} onChange={(e)=>setDatePick(e.target.value)}/>
             </div>
@@ -382,7 +384,7 @@ function TripOverviewComponent() {
                     <div key={index} className="border border-success border-2 rounded px-3 p-2 mb-2 pointer" style={{backgroundColor:"rgba(236,246,244,255)"}}>
                         <div className="d-flex justify-content-between align-items-center text-success">
                             <div className='d-flex align-items-center'>
-                                <div className='circlePick circle p-1 me-2'><i className="fa-solid fa-car-side"></i></div>
+                                <div className='circlePick circle p-1 me-2'><FontAwesomeIcon icon={faCarSide} /></div>
                                 <h4>{item?.bus}</h4>
                             </div>
                             <div className={`d-flex flex-column align-items-end ${tripStatusColor(item?.status)}`}>
@@ -390,18 +392,18 @@ function TripOverviewComponent() {
                                 <span>#{item?.id}</span>
                             </div>
                         </div>
-                        <div className={`ms-5 mt-3 text-secondary ${item?.status==4?tripStatusArrival(item?.status):""}`}>
+                        <div className={`ms-5 mt-3 ${item?.status==4?tripStatusArrival(item?.status):""}`}>
                             <div className="d-flex align-items-center">
-                                <i className="fa-solid me-2 fa-location-dot"></i>
+                                <FontAwesomeIcon icon={faLocationDot} className='me-2'/>
                                 <div className="d-flex flex-column ms-2">
                                     <span className='fw-semibold'>{item?.departure?.location}</span>
                                     <span>{item?.departure?.time}</span>
                                 </div>
                             </div>
                         </div>
-                        <div className={`ms-5 mt-3 text-secondary ${tripStatusArrival(item?.status)}`}>
+                        <div className={`ms-5 mt-3 ${tripStatusArrival(item?.status)}`}>
                             <div className="d-flex align-items-center">
-                                <i className="fa-solid me-2 fa-location-dot"></i>
+                                <FontAwesomeIcon icon={faLocationDot} className='me-2'/>
                                 <div className="d-flex flex-column ms-2">
                                     <span className='fw-semibold'>{item?.arrival?.location}</span>
                                     <span>{item?.arrival?.time}</span>
@@ -412,7 +414,7 @@ function TripOverviewComponent() {
                     <div key={index} className="border border-2 rounded px-3 p-2 mb-2 pointer" onClick={()=>setChosenTrip(index)}>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className='d-flex align-items-center'>
-                                <div className='circle p-1 me-2'><i className="fa-solid fa-car-side"></i></div>
+                                <div className='circle p-1 me-2'><FontAwesomeIcon icon={faCarSide} /></div>
                                 <h4>{item?.bus}</h4>
                             </div>
                             <div className={`d-flex flex-column align-items-end ${tripStatusColor(item?.status)}`}>
@@ -420,18 +422,18 @@ function TripOverviewComponent() {
                                 <span>#{item?.id}</span>
                             </div>
                         </div>
-                        <div className="ms-5 mt-3 text-secondary">
+                        <div className={`ms-5 mt-3 ${item?.status==4?tripStatusArrival(item?.status):""}`}>
                             <div className="d-flex align-items-center">
-                                <i className="fa-solid me-2 fa-location-dot"></i>
+                                <FontAwesomeIcon icon={faLocationDot} className='me-2'/>
                                 <div className="d-flex flex-column ms-2">
                                     <span className='fw-semibold'>{item?.departure?.location}</span>
                                     <span>{item?.departure?.time}</span>
                                 </div>
                             </div>
                         </div>
-                        <div className={`ms-5 mt-3 text-secondary ${tripStatusArrival(item?.status)}`}>
+                        <div className={`ms-5 mt-3 ${tripStatusArrival(item?.status)}`}>
                             <div className="d-flex align-items-center">
-                                <i className="fa-solid me-2 fa-location-dot"></i>
+                                <FontAwesomeIcon icon={faLocationDot} className='me-2'/>
                                 <div className="d-flex flex-column ms-2">
                                     <span className='fw-semibold'>{item?.arrival?.location}</span>
                                     <span>{item?.arrival?.time}</span>
@@ -455,11 +457,11 @@ function TripOverviewComponent() {
                         <h5 className='m-0 p-2 border-bottom'>Route Details</h5>
                         <div className="row gap-2 m-2">
                             <div className="col border d-flex justify-content-center align-items-center flex-column py-2">
-                                <span className='text-secondary'><i className="fa-regular fa-clock"></i> Trip Duration</span>
+                                <span className='text-secondary'><FontAwesomeIcon icon={faClock} /> Trip Duration</span>
                                 <span>{trip?.duration}</span>
                             </div>
                             <div className="col border d-flex justify-content-center align-items-center flex-column py-2">
-                                <span className='text-secondary'><i className="fa-regular fa-moon"></i> Idle Time</span>
+                                <span className='text-secondary'><FontAwesomeIcon icon={faMoon} /> Idle Time</span>
                                 <span>{trip?.idleTime}</span>
                             </div>
                         </div>
@@ -467,7 +469,7 @@ function TripOverviewComponent() {
                             trip?.stops.map((item,index)=>(
                                 <div key={index} className='mt-4 d-flex justify-content-between'>
                                     <div className="d-flex flex-column ps-3">
-                                        <span className='text-secondary fw-semibold'><i className={`fa-solid me-2 fa-location-dot ${stopEventColor(item.type)}`}></i>{item.stop}</span>
+                                        <span className='text-secondary fw-semibold'><FontAwesomeIcon icon={faLocationDot} className={`me-2 ${stopEventColor(item.type)}`}/>{item.stop}</span>
                                         <span className='fw-semibold ms-4'>{item.location}</span>
                                         <span className='text-secondary ms-4'>{item.time}</span>
                                     </div>
@@ -483,41 +485,41 @@ function TripOverviewComponent() {
                         <h5 className='m-0 p-2 border-bottom'>Details</h5>
                         <div className="row mt-4 mx-4">
                             <div className="col">
-                                <p className='text-secondary m-0'><i className="fa-regular fa-calendar-days"></i> Start Date</p>
+                                <p className='text-secondary m-0'><FontAwesomeIcon icon={faCalendarDays} /> Start Date</p>
                                 <span className='fw-semibold'>{trip?.arrival.time}</span>
                             </div>
                             <div className="col">
-                                <p className='m-0 text-secondary'><i className="fa-regular fa-calendar-days"></i> End Date</p>
+                                <p className='m-0 text-secondary'><FontAwesomeIcon icon={faCalendarDays} /> End Date</p>
                                 <span className='fw-semibold'>{trip?.departure.time}</span>
                             </div>
                         </div>
                         <div className="row mt-3 mx-4">
                             <div className="col">
-                                <p className='m-0 text-secondary'><i className="fa-solid fa-truck"></i> Distance Covered</p>
+                                <p className='m-0 text-secondary'><FontAwesomeIcon icon={faTruck} /> Distance Covered</p>
                                 <span className='fw-semibold'>{trip?.distanceTraveled}</span>
                             </div>
                             <div className="col">
-                                <p className='m-0 text-secondary'><i className="fa-regular fa-user"></i> Driver</p>
+                                <p className='m-0 text-secondary'><FontAwesomeIcon icon={faUser}/> Driver</p>
                                 <span className='fw-semibold'>{trip?.driver}</span>
                             </div>
                         </div>
                         <div className="row mt-4 mx-3 gap-2">
                             <div className="col p-2 d-flex flex-column justify-content-center align-items-center border">
-                                <span className='text-center text-secondary'><i className="fa-regular fa-clock"></i> Average Fuel Conception</span>
+                                <span className='text-center text-secondary'><FontAwesomeIcon icon={faClock} /> Average Fuel Conception</span>
                                 <span className='fw-semibold'>{trip?.averageFuel}</span>
                             </div>
                             <div className="col p-2 d-flex flex-column justify-content-center align-items-center border">
-                                <span className='text-center text-secondary'><i className="fa-solid fa-bolt"></i> Average Speed</span>
+                                <span className='text-center text-secondary'><FontAwesomeIcon icon={faBolt} /> Average Speed</span>
                                 <span className='fw-semibold'>{trip?.averageFuel}</span>
                             </div>
                         </div>
                         <div className="row mt-2 mx-3 gap-2">
                         <div className="col p-2 d-flex flex-column justify-content-center align-items-center border">
-                                <span className='text-center text-secondary'><i className="fa-regular fa-clock"></i> Average Fuel Conception</span>
+                                <span className='text-center text-secondary'><FontAwesomeIcon icon={faClock} /> Average Fuel Conception</span>
                                 <span className='fw-semibold'>{trip?.averageFuel}</span>
                             </div>
                             <div className="col p-2 d-flex flex-column justify-content-center align-items-center border">
-                                <span className='text-center text-secondary'><i className="fa-solid fa-bolt"></i> Average Speed</span>
+                                <span className='text-center text-secondary'><FontAwesomeIcon icon={faBolt} /> Average Speed</span>
                                 <span className='fw-semibold'>{trip?.averageSpeed}</span>
                             </div>
                         </div>
@@ -526,11 +528,11 @@ function TripOverviewComponent() {
                         <h5 className='m-0 p-2 border-bottom'>Events</h5>
                         <div className="row p-2 gap-2">
                             <div className="col border d-flex flex-column justify-content-center align-items-center p-3">
-                                <span className='text-center text-secondary'><i className="fa-regular fa-clock"></i> Number of Errors</span>
+                                <span className='text-center text-secondary'><FontAwesomeIcon icon={faTriangleExclamation} /> Number of Errors</span>
                                 <span className='fw-semibold'>{numOfErrors()}</span>
                             </div>
                             <div className="col border d-flex flex-column justify-content-center align-items-center p-3">
-                                <span className='text-center text-secondary'><i className="fa-regular fa-clock"></i> Number of Warnings</span>
+                                <span className='text-center text-secondary'><FontAwesomeIcon icon={faCircleInfo} /> Number of Warnings</span>
                                 <span className='fw-semibold'>{numOfWarnings()}</span>
                             </div>
                         </div>
