@@ -55,6 +55,32 @@ const TripParameters = () => {
                       </Col>
                     </Row>
 
+                    {/* location  */}
+                    <Row className="mt-3">
+                      <Col>
+                        <Form.Label className="mb-1" style={{ fontSize: "14px" }}>Start Location</Form.Label>
+                        <Form.Control as="select">
+                          <option disabled selected value="">
+                            Select Location
+                          </option>
+                          <option>Location 1</option>
+                          <option>Location 2</option>
+                          <option>Location 3</option>
+                        </Form.Control>
+                      </Col>
+                      <Col>
+                        <Form.Label className="mb-1" style={{ fontSize: "14px" }}>End Location</Form.Label>
+                        <Form.Control as="select">
+                          <option disabled selected value="">
+                            Select Location
+                          </option>
+                          <option>Location 1</option>
+                          <option>Location 2</option>
+                          <option>Location 3</option>
+                        </Form.Control>
+                      </Col>
+                    </Row>
+
                     {/* Date and Time Selection */}
                     <Row className='mt-3'>
                       <Col>
@@ -79,6 +105,7 @@ const TripParameters = () => {
                           <option>8:00 PM</option>
                         </Form.Control>
                       </Col>
+                      <Col></Col>
                     </Row>
                   </Form.Group>
 
@@ -111,6 +138,33 @@ const TripParameters = () => {
                       </Col>
                     </Row>
 
+
+                     {/* location  */}
+                     <Row className="mt-3">
+                      <Col>
+                        <Form.Label className="mb-1" style={{ fontSize: "14px" }}>Start Location</Form.Label>
+                        <Form.Control as="select">
+                          <option disabled selected value="">
+                            Select Location
+                          </option>
+                          <option>Location 1</option>
+                          <option>Location 2</option>
+                          <option>Location 3</option>
+                        </Form.Control>
+                      </Col>
+                      <Col>
+                        <Form.Label className="mb-1" style={{ fontSize: "14px" }}>End Location</Form.Label>
+                        <Form.Control as="select">
+                          <option disabled selected value="">
+                            Select Location
+                          </option>
+                          <option>Location 1</option>
+                          <option>Location 2</option>
+                          <option>Location 3</option>
+                        </Form.Control>
+                      </Col>
+                    </Row>
+
                     <Row className='mt-3'>
                       <Col>
                         <Form.Label className="mb-1" style={{ fontSize: "14px" }}>Start Date</Form.Label>
@@ -134,6 +188,7 @@ const TripParameters = () => {
                           <option>8:00 PM</option>
                         </Form.Control>
                       </Col>
+                      <Col></Col>
                     </Row>
                   </Form.Group>
 
